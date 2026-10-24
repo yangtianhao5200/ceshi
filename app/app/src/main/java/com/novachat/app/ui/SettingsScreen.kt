@@ -103,14 +103,14 @@ fun SettingsScreen(
             Text(
                 text = "设置",
                 color = TextPrimary,
-                fontSize = 15.sp,
+                fontSize = 15.sp, lineHeight = 21.sp,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.weight(1f)
             )
             Text(
                 text = "保存",
                 color = Color(0xFFA78BFA),
-                fontSize = 13.sp,
+                fontSize = 13.sp, lineHeight = 18.sp,
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier
                     .clip(RoundedCornerShape(10.dp))
@@ -189,7 +189,7 @@ fun SettingsScreen(
                 Text(
                     text = String.format(Locale.US, "%.1f", draft.temperature),
                     color = Color(0xFFA78BFA),
-                    fontSize = 12.sp,
+                    fontSize = 12.sp, lineHeight = 17.sp,
                     fontWeight = FontWeight.SemiBold
                 )
             }
@@ -220,7 +220,7 @@ fun SettingsScreen(
                 Text(
                     text = "保存并开始对话",
                     color = Color.White,
-                    fontSize = 14.sp,
+                    fontSize = 14.sp, lineHeight = 19.sp,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -233,7 +233,7 @@ fun SettingsScreen(
                     "当前设备不支持硬件加密，密钥以明文保存在应用私有目录"
                 },
                 color = TextTertiary,
-                fontSize = 10.sp,
+                fontSize = 10.sp, lineHeight = 14.sp,
                 modifier = Modifier.fillMaxWidth(),
                 textAlign = androidx.compose.ui.text.style.TextAlign.Center
             )
@@ -259,14 +259,14 @@ private fun SettingsField(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
+                .heightIn(min = minHeight)
                 .clip(RoundedCornerShape(14.dp))
                 .background(NovaSurface)
                 .border(1.dp, NovaStroke, RoundedCornerShape(14.dp))
                 .padding(horizontal = 14.dp, vertical = 14.dp)
-                .heightIn(min = minHeight)
         ) {
             if (value.isEmpty()) {
-                Text(text = placeholder, color = TextTertiary, fontSize = 13.sp)
+                Text(text = placeholder, color = TextTertiary, fontSize = 13.sp, lineHeight = 18.sp)
             }
             BasicTextField(
                 value = value,
@@ -280,7 +280,7 @@ private fun SettingsField(
         }
         if (hint != null) {
             Spacer(Modifier.height(6.dp))
-            Text(text = hint, color = TextTertiary, fontSize = 10.sp)
+            Text(text = hint, color = TextTertiary, fontSize = 10.sp, lineHeight = 14.sp)
         }
     }
 }
@@ -299,7 +299,7 @@ private fun ApiKeyField(
                 Text(
                     text = "清除",
                     color = TextTertiary,
-                    fontSize = 10.5.sp,
+                    fontSize = 10.5.sp, lineHeight = 14.sp,
                     modifier = Modifier
                         .clip(RoundedCornerShape(8.dp))
                         .clickable(onClick = onClear)
@@ -319,7 +319,7 @@ private fun ApiKeyField(
         ) {
             Box(Modifier.weight(1f).padding(vertical = 15.dp)) {
                 if (value.isEmpty()) {
-                    Text("sk-...", color = TextTertiary, fontSize = 13.sp)
+                    Text("sk-...", color = TextTertiary, fontSize = 13.sp, lineHeight = 18.sp)
                 }
                 BasicTextField(
                     value = value,
@@ -345,7 +345,7 @@ private fun ApiKeyField(
         Text(
             text = "仅保存在本机，不会上传到任何第三方服务器",
             color = TextTertiary,
-            fontSize = 10.sp
+            fontSize = 10.sp, lineHeight = 14.sp
         )
     }
 }
@@ -387,14 +387,14 @@ private fun TestCard(test: TestState, onTest: () -> Unit) {
         }
         Spacer(Modifier.width(10.dp))
         Column(Modifier.weight(1f)) {
-            Text(text = title, color = TextPrimary, fontSize = 12.5.sp, fontWeight = FontWeight.Medium)
+            Text(text = title, color = TextPrimary, fontSize = 12.5.sp, lineHeight = 17.sp, fontWeight = FontWeight.Medium)
             Spacer(Modifier.height(2.dp))
-            Text(text = subtitle, color = TextSecondary, fontSize = 10.sp, maxLines = 2)
+            Text(text = subtitle, color = TextSecondary, fontSize = 10.sp, lineHeight = 14.sp, maxLines = 2)
         }
         Text(
             text = "重新测试",
             color = Color(0xFFA78BFA),
-            fontSize = 10.5.sp,
+            fontSize = 10.5.sp, lineHeight = 14.sp,
             fontWeight = FontWeight.SemiBold
         )
     }

@@ -56,8 +56,8 @@ fun OrbAvatar(size: Dp, modifier: Modifier = Modifier, sparkle: Boolean = false)
         )
         if (sparkle) {
             Canvas(Modifier.fillMaxSize()) {
-                val r = this.size.minDimension * 0.14f
-                val stroke = this.size.minDimension * 0.035f
+                val r = this.size.minDimension * 0.10f
+                val stroke = this.size.minDimension * 0.024f
                 val center = Offset(this.size.width / 2f, this.size.height / 2f)
                 drawLine(Color.White, Offset(center.x - r, center.y), Offset(center.x + r, center.y), stroke, StrokeCap.Round)
                 drawLine(Color.White, Offset(center.x, center.y - r), Offset(center.x, center.y + r), stroke, StrokeCap.Round)
@@ -93,7 +93,7 @@ fun NovaChip(
         Text(
             text = text,
             color = if (selected) Color.White else TextSecondary,
-            fontSize = 12.sp,
+            fontSize = 12.sp, lineHeight = 17.sp,
             style = MaterialTheme.typography.labelMedium
         )
     }
@@ -105,7 +105,7 @@ fun SectionLabel(text: String, modifier: Modifier = Modifier) {
         text = text.uppercase(),
         modifier = modifier,
         color = TextTertiary,
-        fontSize = 10.5.sp,
+        fontSize = 10.5.sp, lineHeight = 14.sp,
         letterSpacing = 0.8.sp,
         style = MaterialTheme.typography.labelMedium
     )

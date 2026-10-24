@@ -102,7 +102,7 @@ private fun AssistantBubble(
             Text(
                 text = "星语 AI",
                 color = TextSecondary,
-                fontSize = 11.sp,
+                fontSize = 11.sp, lineHeight = 15.sp,
                 style = MaterialTheme.typography.labelMedium
             )
             Spacer(Modifier.size(6.dp))
@@ -171,7 +171,7 @@ private fun ActionPill(text: String, onClick: () -> Unit) {
             .clickable(onClick = onClick)
             .padding(horizontal = 12.dp, vertical = 6.dp)
     ) {
-        Text(text = text, color = TextSecondary, fontSize = 11.sp, style = MaterialTheme.typography.labelMedium)
+        Text(text = text, color = TextSecondary, fontSize = 11.sp, lineHeight = 15.sp, style = MaterialTheme.typography.labelMedium)
     }
 }
 
@@ -215,7 +215,7 @@ private fun BlinkingCursor() {
     Text(
         text = "\u258E",
         color = NovaPrimary.copy(alpha = alpha),
-        fontSize = 15.sp,
+        fontSize = 15.sp, lineHeight = 21.sp,
         modifier = Modifier.padding(start = 2.dp)
     )
 }

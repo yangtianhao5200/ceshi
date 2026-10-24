@@ -131,7 +131,7 @@ private fun ChatTopBar(
             Text(
                 text = "星语 AI",
                 color = TextPrimary,
-                fontSize = 15.sp,
+                fontSize = 15.sp, lineHeight = 21.sp,
                 fontWeight = FontWeight.Bold
             )
             Spacer(Modifier.height(3.dp))
@@ -141,7 +141,7 @@ private fun ChatTopBar(
                 Text(
                     text = "在线 · $modelName",
                     color = TextSecondary,
-                    fontSize = 10.5.sp,
+                    fontSize = 10.5.sp, lineHeight = 14.sp,
                     maxLines = 1
                 )
             }
@@ -149,7 +149,7 @@ private fun ChatTopBar(
         Text(
             text = "新对话",
             color = TextSecondary,
-            fontSize = 11.5.sp,
+            fontSize = 11.5.sp, lineHeight = 16.sp,
             modifier = Modifier
                 .clip(RoundedCornerShape(10.dp))
                 .clickable(onClick = onNewChat)
@@ -175,7 +175,7 @@ private fun DateChip() {
             Text(
                 text = "本次对话",
                 color = TextSecondary,
-                fontSize = 10.5.sp,
+                fontSize = 10.5.sp, lineHeight = 14.sp,
                 style = MaterialTheme.typography.labelMedium
             )
         }

@@ -156,7 +156,7 @@ class ChatApi(
                     val modelName = runCatching {
                         JSONObject(body).optString("model")
                     }.getOrNull().orEmpty().ifBlank { settings.model }
-                    TestResult(true, "连接正常 · $modelName · ${elapsed} ms", elapsed)
+                    TestResult(true, "$modelName · 延迟 ${elapsed} ms", elapsed)
                 } else {
                     TestResult(false, ChatPayloads.errorMessage(body, response.code), elapsed)
                 }

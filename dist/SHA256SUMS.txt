@@ -1,2 +1,2 @@
 63dbc08c125286a6ffcde5fca40db971440f4d825999b474c33f5b79a5ac11e6  NovaChat-1.0.0-debug.apk
-4dcef616ae83cf1f3a07385eda848b7ee59c2fed76b22a489fb6cdaec68df5a0  NovaChat-1.0.0-release.apk
+bfe38d162fa314f7c55ca2a6b53a428f994bd95e47fc33bd47ca3f873e6d49c5  NovaChat-1.0.0-release.apk

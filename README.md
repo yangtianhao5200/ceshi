@@ -13,6 +13,9 @@
 | `dist/NovaChat-1.0.0-release.apk` | **可直接安装的已签名 Release 包**（11 MB，minSdk 24 / targetSdk 34） |
 | `dist/NovaChat-1.0.0-debug.apk` | Debug 包（applicationId 带 `.debug` 后缀，可与正式包共存） |
 | `dist/SHA256SUMS.txt` | 安装包校验值 |
+| `dist/screens/comparison.png` | 设计稿 vs 真机渲染效果对照图 |
+| `dist/screens/welcome.png`、`chat.png`、`settings.png` | 应用真实渲染截图（Robolectric + Compose 离屏抓图，1170×2532） |
+| `dist/screens/app_boot.png` | App 真实启动（MainActivity）后的首屏截图 |
 | `design/design_mockup.png` | 三屏设计总览（欢迎页 / 对话页 / API 配置页） |
 | `design/screen_welcome.png`、`screen_chat.png`、`screen_settings.png` | 单屏高保真设计稿（780×1688） |
 | `design/design_spec.png` | 设计规范：色板、字号、组件、间距、交互行为 |
@@ -101,10 +104,28 @@ app/app/src/main/java/com/novachat/app/
 
 ## 8. 验证记录
 
-- `./gradlew testDebugUnitTest`：7 个用例全部通过（URL 归一化、payload 构造、SSE 增量解析、错误映射等）。
-- `apksigner verify`：v2 签名有效，证书 SHA-256 `ed3422dd…28f88`。
-- `aapt2 dump badging`：`package=com.novachat.app`，`versionName=1.0.0`，`sdkVersion=24`，`targetSdkVersion=34`，应用名 `星语 AI`。
-- 界面渲染：通过 Robolectric + Compose 离屏抓图（`dist/screens/`）与实际设计稿逐屏比对。
+所有验证均在本仓库内实际执行，产物可在 `dist/` 与 `app/app/build/` 下复查。
+
+**单元 / 集成测试：16 项全部通过**（`./gradlew testDebugUnitTest`）
+
+| 测试类 | 数量 | 覆盖内容 |
+| --- | --- | --- |
+| `ChatLogicTest` | 7 | Base URL 归一化、配置完整性判断、Key 掩码、请求体构造（含 system 消息/过滤空消息与报错消息）、错误信息映射、SSE 增量解析 |
+| `ApiIntegrationTest` | 5 | 用 MockWebServer 跑真实 OkHttp 请求：SSE 流式增量与 `[DONE]` 结束、Authorization/路径/请求体校验、401 错误透传、未配置密钥不发请求、连接测试与 404 映射 |
+| `ScreenshotTest` | 3 | Robolectric + Compose 真实渲染三屏并抓图，用于与设计稿比对 |
+| `AppBootTest` | 1 | 真实启动 `MainActivity`（ViewModel + 加密存储降级 + 完整 Compose 树），并对启动界面抓图 `dist/screens/app_boot.png` |
+
+**构建与签名**
+
+- `assembleRelease`：BUILD SUCCESSFUL，输出 11.3 MB APK
+- `apksigner verify`：`Verifies`，v2 签名有效；证书 `CN=NovaChat`，SHA-256 `ed3422dd…28f88`，RSA 4096
+- `aapt2 dump badging`：`package=com.novachat.app`、`versionName=1.0.0`、`sdkVersion=24`、`targetSdkVersion=34`、应用名 `星语 AI`
+
+**界面比对**
+
+![comparison](dist/screens/comparison.png)
+
+上排为设计稿，下排为应用真实渲染截图，布局、配色、组件圆角与字号基本一致。
 
 ## 9. 当前限制
 

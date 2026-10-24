@@ -161,10 +161,10 @@ fun WelcomeScreen(
                 )
                 Spacer(Modifier.width(10.dp))
                 Column(Modifier.weight(1f)) {
-                    Text("尚未配置 API Key", color = TextPrimary, fontSize = 12.5.sp, fontWeight = FontWeight.Medium)
-                    Text("点击填写地址、密钥与模型", color = TextTertiary, fontSize = 10.5.sp)
+                    Text("尚未配置 API Key", color = TextPrimary, fontSize = 12.5.sp, lineHeight = 17.sp, fontWeight = FontWeight.Medium)
+                    Text("点击填写地址、密钥与模型", color = TextTertiary, fontSize = 10.5.sp, lineHeight = 14.sp)
                 }
-                Text("去配置", color = Color(0xFFA78BFA), fontSize = 11.5.sp, fontWeight = FontWeight.SemiBold)
+                Text("去配置", color = Color(0xFFA78BFA), fontSize = 11.5.sp, lineHeight = 16.sp, fontWeight = FontWeight.SemiBold)
             }
         }
 
@@ -206,7 +206,7 @@ private fun SuggestionCard(
         Text(
             text = suggestion.title,
             color = TextPrimary,
-            fontSize = 12.5.sp,
+            fontSize = 12.5.sp, lineHeight = 17.sp,
             fontWeight = FontWeight.SemiBold,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
@@ -215,7 +215,7 @@ private fun SuggestionCard(
         Text(
             text = suggestion.subtitle,
             color = TextTertiary,
-            fontSize = 10.sp,
+            fontSize = 10.sp, lineHeight = 14.sp,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis
         )

@@ -94,7 +94,7 @@ fun Composer(
                     Text(
                         text = "输入消息…",
                         color = TextTertiary,
-                        fontSize = 14.5.sp
+                        fontSize = 14.5.sp, lineHeight = 20.sp
                     )
                 }
                 BasicTextField(
