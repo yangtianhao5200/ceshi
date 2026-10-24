@@ -1,0 +1,16 @@
+# toolchains (downloaded locally, never committed)
+/tools/
+/.gradle/
+/keystore/*.jks.bak
+
+# android build output
+/app/build/
+/app/app/build/
+/app/.gradle/
+local.properties
+*.iml
+.idea/
+.DS_Store
+
+# logs
+/build*.log
